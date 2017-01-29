@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+         
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/jQuery/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        
+        <script>
+    $(function() {
+    
+    var $meters = $(".meter > span");
+    var $section = $('#prog-bars');
+    var $queue = $({});
+    
+    function loadDaBars() {
+        $meters.each(function() {
+            var $el = $(this);
+            var origWidth = $el.width();
+            $el.width(0);
+            $queue.queue(function(next) {
+                $el.animate({width: origWidth}, 1200, next);
+            });
+        });
+    }
+    
+    $(document).bind('scroll', function(ev) {
+        var scrollOffset = $(document).scrollTop();
+        var containerOffset = $section.offset().top - window.innerHeight;
+        if (scrollOffset > containerOffset) {
+            loadDaBars();
+            $(document).unbind('scroll');
+        }
+    });
+    
+});
+    </script>
+    </head>
+
+    <body>
+        
+        <section id="top-section">
+         <div class="container" id="top-container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Dynamic Progress bars</h2>
+                    
+                </div>
+            <div id="top-section-wrapper">
+        <a href="#prog-bars" class="page-scroll btn btn-xl">Click here to move to progress bars</a>
+        </div>
+                 </div>
+        </div>
+        </section>
+        
+        
+<!-- Skills Section -->
+    <section id="prog-bars">
+        <div class="container" id="skills-container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Title</h2>
+                    
+                </div>
+              
+						<div class="bars-wrapper">
+                            
+						<h3>Text</h3>
+				        <div class="meter" ><span style="width: 60%"></span></div>
+						<h3>Text</h3>
+						<div class="meter" ><span style="width: 40%"></span></div>
+						<h3>Text</h3>
+						<div class="meter" ><span style="width: 25%"></span></div>
+                        <h3>Text</h3>
+						<div class="meter" ><span style="width: 40%"></span></div>
+					    
+                        </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+        </body>
+        
+</html>
