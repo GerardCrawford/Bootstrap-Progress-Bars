@@ -14,6 +14,8 @@ Download and unzip core Bootstrap (Instructions at http://getbootstrap.com/)
 
 Add download files to extracted Boostrap folder and open index.htm in Browser.
 
+Can be repurposed/incorporated with existing/new projects by changing the section details and placement within HTML.
+
 ## Deployment
 
 In order to deploy this on a live system, webpage would have to be hosted in web server, and accessed through a live domain.
